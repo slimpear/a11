@@ -1,0 +1,28 @@
+{
+    "restaurantsList": {
+        "res1": {
+            "name":     "LuLa am Markt",
+            "subtitle": "Café",
+            "img":      "https://lh5.googleusercontent.com/p/AF1QipMHUGKUTwadfNz-tuMr4OSbuH4ng5IKrqQoLk7w=w284-h160-k-no",
+            "address":  "Lauterstraße 14, 12159 Berlin",
+            "url":      "http://lula-berlin.de",
+            "tel":      "030 12345678"
+        },
+        "res2": {
+            "name":     "KAWA Cafe-Deli",
+            "subtitle": "Veganes Restaurant",
+            "img":      "https://lh5.googleusercontent.com/p/AF1QipOfkiCHPK6KAIMyrGtm-184QCauoIwmO6sTiRPK=w213-h160-k-no",
+            "address":  "Moltkestraße 1, 12203 Berlin",
+            "url":      "http://www.cafekawa.de",
+            "tel":      "030 12345678"
+        },
+        "res3": {
+            "name":     "Curry 36",
+            "subtitle": "Snack Bar",
+            "img":      "https://lh5.googleusercontent.com/p/AF1QipOTqap7-04d-rfhnlI8EgOvXWX_Z73ZE2B3ts2B=w213-h160-k-no",
+            "address":  "Mehringdamm 36, 10961 Berlin",
+            "url":      "http://www.curry36.de",
+            "tel":      "030 12345678"
+        }
+    }
+}

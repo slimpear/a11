@@ -70,11 +70,13 @@ function onClickRestaurants() {
 
 function getRestaurants() {
     
-    $.get('https://cors-escape.herokuapp.com/https://wt1819-queleba.c9users.io/restaurants.json').done(function(data) {
+    $.get('http://localhost/restaurants.json').done(function(data) {
         console.log(data);
+        return data;
     }).fail(function(data) {
         console.log('Error: ' + data);
     });
+    return null;
 
     // return resList;
 }
@@ -87,51 +89,56 @@ function jumpRestaurants() {
         location.hash = "restaurants";
     } else { //9.2.4
         $("main").empty();
-        getRestaurants();
-        let resText = document.createElement('h2');
-        resText.innerHTML += "Restaurants";
-        document.getElementsByTagName("MAIN")[0].appendChild(resText);
-        let cards = document.createElement('div');
-        cards.setAttribute("class", "cards");
+        let data = getRestaurants();
 
-        // create and add elements on the fly before adding to "main". Could be done by adding to "main" and getElementById too.
-        restaurantsList.forEach(res => {
-            let card = document.importNode(document.querySelector("#cardTemplate").content, true);
+        if (data !== null) {
+
+        
+            let resText = document.createElement('h2');
+            resText.innerHTML += "Restaurants";
+            document.getElementsByTagName("MAIN")[0].appendChild(resText);
+            let cards = document.createElement('div');
+            cards.setAttribute("class", "cards");
             
-            card.querySelector('img').src = res.img;
-            let h3 = card.querySelector('h3');
-            h3.innerHTML += res.name;
-            card.querySelector('h3').querySelector('div').textContent = res.subtitle;
-            
-            let section = card.querySelector('section');
-            
-
-            let d1 = document.createElement("div");
-            d1.innerHTML += (res.address);
-
-            let d2 = document.createElement("div");
-            let d21 = document.createElement("a");
-            d21.setAttribute('href', res.url);
-            d21.innerHTML += res.url;
-            d2.appendChild(d21);
-
-            let d3 = document.createElement("div");
-            let d31 = document.createElement("a");
-            d31.setAttribute('href', res.tel);
-            d31.innerHTML += res.tel;
-            d3.appendChild(d31);
-
-            section.appendChild(d1);
-            section.appendChild(d2);
-            section.appendChild(d3);
-
-            // card.appendChild(section);
-            cards.appendChild(card);
-        });
-        var clone = document.importNode(cards, true);
-        document.getElementsByTagName("MAIN")[0].appendChild(clone);
-        //location.hash = "restaurants";
+            // create and add elements on the fly before adding to "main". Could be done by adding to "main" and getElementById too.
+            data.forEach(res => {
+                let card = document.importNode(document.querySelector("#cardTemplate").content, true);
+                
+                card.querySelector('img').src = res.img;
+                let h3 = card.querySelector('h3');
+                h3.innerHTML += res.name;
+                card.querySelector('h3').querySelector('div').textContent = res.subtitle;
+                
+                let section = card.querySelector('section');
+                
+                
+                let d1 = document.createElement("div");
+                d1.innerHTML += (res.address);
+                
+                let d2 = document.createElement("div");
+                let d21 = document.createElement("a");
+                d21.setAttribute('href', res.url);
+                d21.innerHTML += res.url;
+                d2.appendChild(d21);
+                
+                let d3 = document.createElement("div");
+                let d31 = document.createElement("a");
+                d31.setAttribute('href', res.tel);
+                d31.innerHTML += res.tel;
+                d3.appendChild(d31);
+                
+                section.appendChild(d1);
+                section.appendChild(d2);
+                section.appendChild(d3);
+                
+                // card.appendChild(section);
+                cards.appendChild(card);
+            });
+            var clone = document.importNode(cards, true);
+            document.getElementsByTagName("MAIN")[0].appendChild(clone);
+            //location.hash = "restaurants";
+        }
     }
-
+        
 }
-
+    

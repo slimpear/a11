@@ -70,7 +70,7 @@ function onClickRestaurants() {
 
 function getRestaurants() {
     
-    $.get('http://localhost/restaurants.json').done(function(data) {
+    $.get('https://wt1819-queleba.c9users.io/restaurants.json').done(function(data) {
         console.log(data);
         return data;
     }).fail(function(data) {
